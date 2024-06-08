@@ -10,7 +10,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const { name, email, message } = req.body
 
     // Replace with your Formspree endpoint
-    const formspreeEndpoint = 'https://formspree.io/f/mayrgrgd'
+    const formspreeEndpoint = process.env.FORMSPREE_ENDPOINT
+
+    if (!formspreeEndpoint) {
+      return res.status(500).json({ error: 'Formspree endpoint is not defined' })
+    }
 
     try {
       const response = await fetch(formspreeEndpoint, {

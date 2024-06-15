@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 import { SkillsProps } from './types'
-import { mappedVariants } from '@/app/constants/animations'
+import { mappedVariants } from '@/app/animations'
 
 const Skills = ({ data }: SkillsProps) => {
   const { title, subtitle, skillsCollection } = data ?? {}

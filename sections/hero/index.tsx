@@ -5,35 +5,14 @@ import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import Button from '@/components/button'
 import { motion } from 'framer-motion'
-import { handleOpenResume } from '@/utils/general'
+import { getResume } from '@/utils/general'
 import Link from 'next/link'
+import { HeroProps } from './types'
+import { fadeIn, staggerContainer } from '@/app/constants/animations'
 
-const staggerContainer = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-    },
-  },
-}
+const Hero = ({ data }: HeroProps) => {
+  const { subtitle, title } = data ?? {}
 
-const fadeIn = {
-  initial: {
-    opacity: 0,
-    transform: 'translateX(100px)',
-    filter: 'blur(30px)',
-  },
-  animate: {
-    opacity: 1,
-    transform: 'translateX(0px)',
-    filter: 'blur(0px)',
-  },
-}
-
-const Hero = () => {
   return (
     <section
       className="min-h-[700px] h-[calc(100vh-73px)] flex items-center justify-center"
@@ -46,9 +25,10 @@ const Hero = () => {
         whileInView="animate"
       >
         <div className="font-bold">
-          <motion.p variants={fadeIn}>👋 Hi, I&apos;m</motion.p>
+          <motion.p variants={fadeIn}>{subtitle}</motion.p>
           <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl">
-            Sam Suarez.
+            {title}
+            <span className="text-yellow">.</span>
           </motion.h1>
           <motion.p variants={fadeIn} className="mt-5 text-2xl">
             A <span className="text-yellow">software engineer</span> with 6+ years of experience and
@@ -65,7 +45,7 @@ const Hero = () => {
           <Button
             className="bg-yellow text-black mt-6"
             icon={<ArrowRightAltOutlinedIcon />}
-            onClick={handleOpenResume}
+            onClick={getResume}
           >
             View Resume
           </Button>

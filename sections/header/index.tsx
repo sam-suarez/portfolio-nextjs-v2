@@ -7,7 +7,7 @@ import MobileMenu from '@/components/mobile-menu'
 import { NavLink } from './types'
 import { useToggleBodyScroll } from '@/hooks/useDisableBodyScroll'
 import Link from 'next/link'
-import { handleOpenResume } from '@/utils/general'
+import { getResume } from '@/utils/general'
 import clsx from 'clsx'
 
 const NAV_LINKS: NavLink[] = [
@@ -72,7 +72,7 @@ const Header = () => {
             <Button
               className="bg-yellow text-black"
               icon={<ArrowRightAltOutlinedIcon />}
-              onClick={handleOpenResume}
+              onClick={getResume}
             >
               Resume
             </Button>

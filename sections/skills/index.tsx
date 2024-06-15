@@ -4,139 +4,12 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
+import { SkillsProps } from './types'
+import { mappedVariants } from '@/app/constants/animations'
 
-const skills = [
-  {
-    title: 'HTML5',
-    icon: '/icons/html-icon.png',
-  },
-  {
-    title: 'CSS3',
-    icon: '/icons/css-icon.png',
-  },
-  {
-    title: 'JavaScript',
-    icon: '/icons/javascript-icon.png',
-  },
-  {
-    title: 'jQuery',
-    icon: '/icons/jquery-icon.png',
-  },
-  {
-    title: 'TypeScript',
-    icon: '/icons/typescript-icon.png',
-  },
-  {
-    title: 'Sass',
-    icon: '/icons/sass-icon.png',
-  },
-  {
-    title: 'Bootstrap',
-    icon: '/icons/bootstrap-icon.png',
-  },
-  {
-    title: 'CSS Modules',
-    icon: '/icons/css-modules-icon.png',
-  },
-  {
-    title: 'Chakra UI',
-    icon: '/icons/chakraui-icon.png',
-  },
-  {
-    title: 'Styled-components',
-    icon: '/icons/styled-components-icon.png',
-  },
-  {
-    title: 'Framer Motion',
-    icon: '/icons/framer-icon.png',
-  },
-  {
-    title: 'NPM',
-    icon: '/icons/npm-icon.png',
-  },
-  {
-    title: 'NodeJS',
-    icon: '/icons/nodejs-icon.png',
-  },
-  {
-    title: 'Github',
-    icon: '/icons/github-icon.png',
-  },
-  {
-    title: 'Git',
-    icon: '/icons/git-icon.png',
-  },
-  {
-    title: 'Gatsby',
-    icon: '/icons/gatsby-icon.png',
-  },
-  {
-    title: 'Contentful',
-    icon: '/icons/contentful-icon.png',
-  },
-  {
-    title: 'Shopify',
-    icon: '/icons/shopify-icon.png',
-  },
-  {
-    title: 'Hydrogen',
-    icon: '/icons/hydrogen-icon.png',
-  },
-  {
-    title: 'React',
-    icon: '/icons/react-icon.png',
-  },
-  {
-    title: 'Remix',
-    icon: '/icons/remix-icon.png',
-  },
-  {
-    title: 'Next',
-    icon: '/icons/nextjs-icon.png',
-  },
-  {
-    title: 'Storybook',
-    icon: '/icons/storybook-icon.png',
-  },
-  {
-    title: 'GraphQL',
-    icon: '/icons/graphql-icon.png',
-  },
-  {
-    title: 'Figma',
-    icon: '/icons/figma-icon.png',
-  },
-  {
-    title: 'XD',
-    icon: '/icons/xd-icon.png',
-  },
-  {
-    title: 'Photoshop',
-    icon: '/icons/photoshop-icon.png',
-  },
-  {
-    title: 'AfterEffects',
-    icon: '/icons/aftereffects-icon.png',
-  },
-]
+const Skills = ({ data }: SkillsProps) => {
+  const { title, subtitle, skillsCollection } = data ?? {}
 
-const variants = {
-  initial: {
-    opacity: 0,
-    transform: 'translateX(100px)',
-    filter: 'blur(30px)',
-  },
-  animate: (custom: number) => ({
-    opacity: 1,
-    transform: 'translateX(0px)',
-    filter: 'blur(0px)',
-    transition: {
-      delay: 0.05 * custom,
-    },
-  }),
-}
-
-const Skills = () => {
   return (
     <section
       id="skills"
@@ -148,7 +21,8 @@ const Skills = () => {
         animate={{ opacity: 1, x: '0', filter: 'blur(0px)' }}
         transition={{ bounce: false }}
       >
-        Skills<span className="text-yellow">.</span>
+        {title}
+        <span className="text-yellow">.</span>
       </motion.h1>
       <motion.p
         className="mt-2"
@@ -156,10 +30,10 @@ const Skills = () => {
         animate={{ opacity: 1, x: '0', filter: 'blur(0px)' }}
         transition={{ bounce: false }}
       >
-        Technologies and tools I&apos;ve used (in an actual work setting).
+        {subtitle}
       </motion.p>
       <div className="mt-6 flex flex-wrap gap-1.5">
-        {skills.map(({ title, icon }, index) => {
+        {skillsCollection?.items?.map(({ title, image }, index) => {
           const isInverted = ['Github', 'Next']
 
           return (
@@ -169,13 +43,14 @@ const Skills = () => {
               initial="initial"
               whileInView="animate"
               custom={index}
-              variants={variants}
+              variants={mappedVariants}
             >
               <div className="relative h-[20px] w-[20px] md:h-[30px] w-[30px]">
                 <Image
-                  src={icon}
+                  src={image.url}
                   alt={title}
                   fill
+                  sizes="30px"
                   className={clsx('object-contain', { invert: isInverted.includes(title) })}
                 />
               </div>

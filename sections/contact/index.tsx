@@ -5,31 +5,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined'
 import { FormData } from './types'
 import { motion } from 'framer-motion'
-
-const staggerContainer = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.03,
-    },
-  },
-}
-
-const fadeIn = {
-  initial: {
-    opacity: 0,
-    transform: 'translateX(100px)',
-    filter: 'blur(30px)',
-  },
-  animate: {
-    opacity: 1,
-    transform: 'translateX(0px)',
-    filter: 'blur(0px)',
-  },
-}
+import { fadeIn, staggerContainer } from '@/app/constants/animations'
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState<'success' | 'error' | 'loading'>()

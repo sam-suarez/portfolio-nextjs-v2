@@ -1,12 +1,13 @@
 import { Image } from './image'
-
 export interface SkillsQuery {
-  skills: {
-    title: string
-    subtitle: string
-    skillsCollection: {
-      items: SkillItem[]
-    }
+  skills: Skills
+}
+
+export interface Skills {
+  title: string
+  subtitle: string
+  skillsCollection: {
+    items: SkillItem[]
   }
 }
 

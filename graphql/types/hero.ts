@@ -1,6 +1,8 @@
 export interface HeroQuery {
-  hero: {
-    title: string
-    subtitle: string
-  }
+  hero: Hero
+}
+
+export interface Hero {
+  title: string
+  subtitle: string
 }

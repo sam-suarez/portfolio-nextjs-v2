@@ -15,7 +15,7 @@ const Hero = ({ data }: HeroProps) => {
 
   return (
     <section
-      className="min-h-[700px] h-[calc(100vh-73px)] flex items-center justify-center"
+      className="min-h-[700px] h-[calc(100vh-73px-64px)] md:h-[calc(100vh-73px-84px)] flex items-center justify-center"
       id="hero"
     >
       <motion.div

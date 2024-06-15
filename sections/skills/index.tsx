@@ -13,7 +13,7 @@ const Skills = ({ data }: SkillsProps) => {
   return (
     <section
       id="skills"
-      className="min-h-[700px] h-[calc(100vh-73px)] flex justify-center flex-col"
+      className="min-h-[700px] h-[calc(100vh-73px-64px)] md:h-[calc(100vh-73px-84px)] flex justify-center flex-col"
     >
       <motion.h1
         className="font-bold text-2xl md:text-4xl"

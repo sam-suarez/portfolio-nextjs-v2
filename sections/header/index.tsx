@@ -44,7 +44,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 py-4 md:py-6 z-10">
+      <header className="py-4 md:py-6 z-10">
         <div className="mx-auto max-w-screen-lg px-5 md:px-10 flex items-center justify-between">
           <Link href="/">
             <div className="text-2xl font-bold">

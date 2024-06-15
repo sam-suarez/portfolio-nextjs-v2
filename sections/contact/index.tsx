@@ -49,7 +49,7 @@ const Contact = () => {
 
   return (
     <section
-      className="min-h-[700px] h-[calc(100vh-73px)] flex justify-center flex-col"
+      className="min-h-[700px] h-[calc(100vh-73px-64px)] md:h-[calc(100vh-73px-84px)] flex justify-center flex-col"
       id="contact"
     >
       <motion.div

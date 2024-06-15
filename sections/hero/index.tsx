@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import { getResume } from '@/utils/general'
 import Link from 'next/link'
 import { HeroProps } from './types'
-import { fadeIn, staggerContainer } from '@/app/animations'
+import { fadeIn, staggerContainer } from '@/animations'
 
 const Hero = ({ data }: HeroProps) => {
   const { subtitle, title } = data ?? {}

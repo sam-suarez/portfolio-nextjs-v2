@@ -5,7 +5,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined'
 import { FormData } from './types'
 import { motion } from 'framer-motion'
-import { fadeIn, staggerContainer } from '@/app/animations'
+import { fadeIn, staggerContainer } from '@/animations'
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState<'success' | 'error' | 'loading'>()

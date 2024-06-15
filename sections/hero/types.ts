@@ -1,3 +1,5 @@
-import { ReactNode } from 'react'
+import { HeroQuery } from '@/graphql/hero'
 
-export interface HeroProps {}
+export interface HeroProps {
+  data: HeroQuery['hero']
+}

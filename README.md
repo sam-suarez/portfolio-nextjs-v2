@@ -16,7 +16,7 @@ This is a personal portfolio website built using Next.js, Tailwind CSS, and Fram
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - [Framer Motion](https://www.framer.com/motion/) - Library for animations and gestures
 - [Vercel](https://vercel.com/) - Deployment and hosting platform
-- [Contentful](https://www.contentful.com/) - For CMS (WIP)
+- [Contentful](https://www.contentful.com/) - Headless CMS
 
 ## Pages
 

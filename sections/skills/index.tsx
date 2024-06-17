@@ -33,7 +33,8 @@ const Skills = ({ data }: SkillsProps) => {
         {subtitle}
       </motion.p>
       <div className="mt-6 flex flex-wrap gap-1.5">
-        {skillsCollection?.items?.map(({ title, image }, index) => {
+        {skillsCollection?.items?.map((skill, index) => {
+          const { title, image } = skill ?? {}
           const isInverted = ['Github', 'Next']
 
           return (
@@ -45,15 +46,17 @@ const Skills = ({ data }: SkillsProps) => {
               custom={index}
               variants={mappedVariants}
             >
-              <div className="relative h-[20px] w-[20px] md:h-[30px] w-[30px]">
-                <Image
-                  src={image.url}
-                  alt={title}
-                  fill
-                  sizes="30px"
-                  className={clsx('object-contain', { invert: isInverted.includes(title) })}
-                />
-              </div>
+              {image?.url && (
+                <div className="relative h-[20px] w-[20px] md:h-[30px] w-[30px]">
+                  <Image
+                    src={image.url}
+                    alt={title ?? ''}
+                    fill
+                    sizes="30px"
+                    className={clsx('object-contain', { invert: isInverted.includes(title ?? '') })}
+                  />
+                </div>
+              )}
               {title}
             </motion.div>
           )

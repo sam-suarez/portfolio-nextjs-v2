@@ -1,19 +1,19 @@
-import client from '@/lib/apolloClient'
+import { HeroQuery } from '@/graphql/generated'
 import { HERO_QUERY } from '@/graphql/queries/hero'
-import { HeroQuery } from '@/graphql/types/hero'
+import client from '@/lib/apolloClient'
 import Hero from '@/sections/hero'
 
-const fetchHeroData = async () => {
+const fetchServerData = async () => {
   const { data } = await client.query<HeroQuery>({
     query: HERO_QUERY,
   })
-  return data.hero
+  return data
 }
 
 const Home = async () => {
-  const heroData = await fetchHeroData()
+  const data = await fetchServerData()
 
-  return <Hero data={heroData} />
+  return <Hero data={data.hero} />
 }
 
 export default Home

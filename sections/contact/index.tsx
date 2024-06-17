@@ -119,6 +119,11 @@ const Contact = () => {
               onChange={handleChange}
               required
             />
+            {formStatus === 'error' && (
+              <p className="px-4 py-2 mt-2 bg-red-500 text-white text-xs rounded">
+                On no, something went wrong. Please try again.
+              </p>
+            )}
             <motion.div variants={fadeIn}>
               <Button
                 className="bg-blue text-white mt-6"

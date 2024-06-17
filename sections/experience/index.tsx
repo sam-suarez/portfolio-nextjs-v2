@@ -36,7 +36,7 @@ const Experience = ({ data }: ExperienceProps) => {
       <div className="relative mt-6 grid md:grid-cols-2 gap-4 md:gap-6">
         {experiencesCollection?.items?.map((experience, index) => {
           const { image, position, company, startDate, endDate, overview, responsibilities } =
-            experience
+            experience ?? {}
           const isFirstIndex = index === 0
 
           return (
@@ -51,9 +51,11 @@ const Experience = ({ data }: ExperienceProps) => {
               variants={mappedVariants}
               viewport={{ once: true }}
             >
-              <div className="relative h-[50px] w-[50px]">
-                <Image src={image.url} alt={position} fill className="object-contain" />
-              </div>
+              {image?.url && (
+                <div className="relative h-[50px] w-[50px]">
+                  <Image src={image.url} alt={position ?? ''} fill className="object-contain" />
+                </div>
+              )}
               <div className="flex items-center text-yellow font-bold text-lg mt-3">{position}</div>
               <div
                 className={clsx('flex flex-col', {
@@ -66,10 +68,10 @@ const Experience = ({ data }: ExperienceProps) => {
                 </p>
               </div>
               <p className="mt-3 text-yellow text-xs">Overview</p>
-              <RichText content={overview.json} />
+              {overview && <RichText content={overview.json} />}
               <p className="mt-3 text-yellow text-xs">Responsibilities</p>
               <ul className="mt-1 list-disc pl-6 text-sm">
-                {responsibilities.map((responsibility, index) => (
+                {responsibilities?.map((responsibility, index) => (
                   <li key={index}>{responsibility}</li>
                 ))}
               </ul>

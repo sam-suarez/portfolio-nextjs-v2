@@ -1,5 +1,5 @@
-import { Experience } from '@/graphql/types/experience'
+import { ExperienceQuery } from '@/graphql/generated'
 
 export interface ExperienceProps {
-  data: Experience
+  data: ExperienceQuery['experience']
 }

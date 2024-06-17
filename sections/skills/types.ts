@@ -1,5 +1,5 @@
-import { Skills } from '@/graphql/types/skills'
+import { SkillsQuery } from '@/graphql/generated'
 
 export interface SkillsProps {
-  data: Skills
+  data: SkillsQuery['skills']
 }

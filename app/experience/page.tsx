@@ -1,5 +1,5 @@
-import { ExperienceQuery } from '@/graphql/generated'
 import { EXPERIENCE_QUERY } from '@/graphql/queries/experience'
+import { ExperienceQuery } from '@/graphql/types/experience'
 import client from '@/lib/apolloClient'
 import Experience from '@/sections/experience'
 import React from 'react'

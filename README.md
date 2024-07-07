@@ -1,20 +1,12 @@
 # Portfolio Website
 
-This is a personal portfolio website built using Next.js, Tailwind CSS, and Framer Motion. Deployed on Vercel.
+This is a personal portfolio website built using Next.js and Tailwind CSS. Deployed on Vercel.
 
 **Demo:** [samsuarez.dev](https://samsuarez.dev/)
 
 ## License
 
 This project is licensed under the MIT License. See the LICENSE.txt file for details.
-
-## Features
-
-- Responsive design
-- Animations with Framer Motion
-- Mobile menu support
-- Skills, experience, and contact sections
-- Downloadable resume
 
 ## Technologies Used
 

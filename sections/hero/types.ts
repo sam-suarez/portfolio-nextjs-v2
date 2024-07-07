@@ -1,5 +1,5 @@
-import { HeroQuery } from '@/graphql/types/hero'
+import { HomepageQuery } from '@/graphql/generated'
 
 export interface HeroProps {
-  data: HeroQuery['hero']
+  data: HomepageQuery
 }

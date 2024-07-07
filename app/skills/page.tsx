@@ -1,4 +1,4 @@
-import { SKILLS_QUERY } from '@/graphql/queries/skills'
+import { SKILLS_QUERY } from '@/graphql/queries/fragments/skills'
 import { SkillsQuery } from '@/graphql/types/skills'
 import client from '@/lib/apolloClient'
 import Skills from '@/sections/skills'

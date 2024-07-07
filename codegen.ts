@@ -15,13 +15,10 @@ module.exports = {
         },
     },
   ],
-  documents: 'graphql/queries/**/*.ts',
+  documents: 'graphql/**/*.ts',
   generates: {
     'graphql/generated.ts': {
       plugins: ['typescript', 'typescript-operations', 'typescript-react-apollo'],
-      config: {
-        skipComments: true,
-      },
     },
   },
 }

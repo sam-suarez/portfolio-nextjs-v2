@@ -20,23 +20,8 @@ This project is licensed under the MIT License. See the LICENSE.txt file for det
 
 - [Next.js](https://nextjs.org/) - React framework for server-rendered or statically-exported React apps
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Framer Motion](https://www.framer.com/motion/) - Library for animations and gestures
 - [Vercel](https://vercel.com/) - Deployment and hosting platform
 - [Contentful](https://www.contentful.com/) - Headless CMS
-
-## Pages
-
-### Experience
-
-The Experience page showcases previous jobs with descriptions and responsibilities, providing a detailed overview of professional experience.
-
-### Skills
-
-The Skills page displays my current tech stack, highlighting the technologies and tools used.
-
-### Contact
-
-The Contact page includes a contact form to reach out for inquiries or further information.
 
 ## Getting Started
 
@@ -50,12 +35,7 @@ Make sure you have the following installed on your machine:
 
 ### Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/sam-suarez/portfolio.git
-   cd portfolio
-   ```
+1. Clone the repository.
 
 2. Install dependencies:
 

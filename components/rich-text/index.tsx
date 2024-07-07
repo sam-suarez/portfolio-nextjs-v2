@@ -3,14 +3,16 @@ import { RichTextProps } from './types'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-const RichText = ({ content }: RichTextProps) => {
+const RichText = ({ content, className = '' }: RichTextProps) => {
   const options = {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node: any, children: any) => <p className="mt-1 text-sm">{children}</p>,
+      [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
+        return <p className={`mb-4 last-of-type:mb-0 ${className}`}>{children}</p>
+      },
     },
   }
 
-  return <div className="prose">{documentToReactComponents(content, options)}</div>
+  return documentToReactComponents(content, options)
 }
 
 export default RichText

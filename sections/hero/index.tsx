@@ -1,63 +1,57 @@
-'use client'
-
 import React from 'react'
-import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined'
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
-import Button from '@/components/button'
-import { motion } from 'framer-motion'
-import { getResume } from '@/utils/general'
-import Link from 'next/link'
 import { HeroProps } from './types'
-import { fadeIn, staggerContainer } from '@/animations'
+import RichText from '@/components/rich-text'
+import Stack from '@/components/stack'
+import Socials from '@/components/socials'
+import Experience from '@/components/experience'
+import { ArrowRightIcon } from '@/components/icons'
+import CTA from './components/cta'
 
 const Hero = ({ data }: HeroProps) => {
-  const { subtitle, title } = data ?? {}
+  const { hero, experienceEntryCollection } = data ?? {}
+  const { title, description, skills, summary } = hero ?? {}
 
   return (
-    <section
-      className="min-h-[700px] h-[calc(100vh-73px-64px)] md:h-[calc(100vh-73px-84px)] flex items-center justify-center"
-      id="hero"
-    >
-      <motion.div
-        className="md:text-left md:text-lg max-w-lg md:max-w-xl"
-        variants={staggerContainer}
-        initial="initial"
-        whileInView="animate"
-      >
-        <div className="font-bold">
-          <motion.p variants={fadeIn}>{subtitle}</motion.p>
-          <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl">
-            {title}
-            <span className="text-yellow">.</span>
-          </motion.h1>
-          <motion.p variants={fadeIn} className="mt-5 text-2xl">
-            A <span className="text-yellow">software engineer</span> with 6+ years of experience and
-            a solid foundation in <span className="text-yellow">design</span>.
-          </motion.p>
-          <motion.p variants={fadeIn} className="mt-5 text-2xl">
-            Experienced <span className="text-yellow">front-end developer</span>, specializing in{' '}
-            <span className="text-yellow">Shopify Hydrogen</span> using{' '}
-            <span className="text-yellow">Remix</span> and{' '}
-            <span className="text-yellow">TypeScript</span>
-          </motion.p>
+    <section className="py-12 lg:py-0">
+      <div className="grid lg:grid-cols-2 lg:gap-12 xl:gap-16">
+        <div className="lg:py-20 lg:h-screen lg:flex lg:flex-col lg:sticky lg:top-0">
+          <h1 className="text-5xl font-bold mb-4 lg:text-7xl">{title}</h1>
+          <RichText className="text-xl font-bold max-w-md" content={description?.json} />
+          <CTA />
+          <div className="mt-20 lg:hidden">
+            <h4 className="font-bold mb-6">About.</h4>
+            <RichText content={summary?.json} />
+          </div>
+          <div className="mt-20 lg:mt-auto">
+            <h4 className="font-bold mb-6 lg:hidden">Stack.</h4>
+            <Stack stack={skills} />
+          </div>
+          <Socials className="mt-6" />
         </div>
-        <motion.div variants={fadeIn}>
-          <Button
-            className="bg-yellow text-black mt-6"
-            icon={<ArrowRightAltOutlinedIcon />}
-            onClick={getResume}
-          >
-            View Resume
-          </Button>
-        </motion.div>
-        <motion.div variants={fadeIn}>
-          <Link href="/contact">
-            <Button className="bg-blue text-white mt-2" icon={<EmailOutlinedIcon />}>
-              Contact
-            </Button>
-          </Link>
-        </motion.div>
-      </motion.div>
+        <div className="lg:py-20">
+          <div className="hidden lg:block">
+            <RichText content={summary?.json} />
+          </div>
+          <div className="mt-20">
+            <h4 className="font-bold mb-6">Experience.</h4>
+            <Experience experience={experienceEntryCollection} />
+          </div>
+          <div className="mt-20">
+            <h4 className="font-bold mb-6">Projects.</h4>
+            <div className="flex items-center justify-center p-4 rounded-md bg-white-100 h-[150px] text-xs">
+              COMING SOON.
+            </div>
+          </div>
+          <div className="mt-20">
+            <p className="text-sm">
+              Built with <span className="font-bold">Next.js</span> and{' '}
+              <span className="font-bold">Tailwind CSS</span>. Deployed on{' '}
+              <span className="font-bold">Vercel</span>.
+            </p>
+            <p className="text-sm mt-4">Sam Suarez — 2024</p>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

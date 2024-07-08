@@ -13,9 +13,11 @@ const config: Config = {
         white: {
           DEFAULT: '#f3f3f3',
           100: '#e7e7e7',
+          200: '#dadada',
         },
         black: {
           DEFAULT: '#323232',
+          100: '#505050',
         },
         green: {
           DEFAULT: '#415D5C',

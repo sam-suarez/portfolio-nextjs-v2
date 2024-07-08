@@ -4,7 +4,6 @@ import RichText from '@/components/rich-text'
 import Stack from '@/components/stack'
 import Socials from '@/components/socials'
 import Experience from '@/components/experience'
-import { ArrowRightIcon } from '@/components/icons'
 import CTA from './components/cta'
 
 const Hero = ({ data }: HeroProps) => {
@@ -12,9 +11,9 @@ const Hero = ({ data }: HeroProps) => {
   const { title, description, skills, summary } = hero ?? {}
 
   return (
-    <section className="py-12 lg:py-0">
+    <section className="py-12 lg:py-0 mx-auto max-w-[1440px]">
       <div className="grid lg:grid-cols-2 lg:gap-12 xl:gap-16">
-        <div className="lg:py-20 lg:h-screen lg:flex lg:flex-col lg:sticky lg:top-0">
+        <div className="lg:py-32 lg:h-screen lg:flex lg:flex-col lg:sticky lg:top-0">
           <h1 className="text-5xl font-bold mb-4 lg:text-7xl">{title}</h1>
           <RichText className="text-xl font-bold max-w-md" content={description?.json} />
           <CTA />
@@ -28,7 +27,7 @@ const Hero = ({ data }: HeroProps) => {
           </div>
           <Socials className="mt-6" />
         </div>
-        <div className="lg:py-20">
+        <div className="lg:py-32">
           <div className="hidden lg:block">
             <RichText content={summary?.json} />
           </div>
@@ -38,7 +37,7 @@ const Hero = ({ data }: HeroProps) => {
           </div>
           <div className="mt-20">
             <h4 className="font-bold mb-6">Projects.</h4>
-            <div className="flex items-center justify-center p-4 rounded-md bg-white-100 h-[150px] text-xs">
+            <div className="flex items-center justify-center p-4 rounded-md bg-white-100 h-[150px] text-xs font-bold">
               COMING SOON.
             </div>
           </div>

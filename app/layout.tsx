@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ReactNode } from 'react'
+import Contact from '@/sections/contact'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,10 +14,10 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} background relative bg-white text-black leading-[150%] px-5 md:px-12`}
-      >
-        <main className="relative mx-auto max-w-[1440px]">{children}</main>
+      <body className={`${inter.className} text-black relative`}>
+        <main className="relative leading-[150%] px-5 md:px-12">{children}</main>
+        <div id="portal" />
+        <div className="bg-white background fixed inset-0 -z-10" />
       </body>
     </html>
   )

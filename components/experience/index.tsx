@@ -18,7 +18,7 @@ const Experience = ({ experience }: ExperienceProps) => {
             className={clsx(
               'grid p-4 rounded-md md:grid-cols-[180px_1fr] md:gap-6 lg:grid-cols-1 lg:gap-0 xl:grid-cols-[180px_1fr] xl:gap-6 xl:p-6',
               {
-                'bg-white-100': endDate,
+                'transition-colors bg-white-100 hover:bg-white-200': endDate,
                 'bg-black text-white': !endDate,
               },
             )}
@@ -29,9 +29,9 @@ const Experience = ({ experience }: ExperienceProps) => {
                 <div>—</div>
                 {endDate ? endDate : <div className="font-bold">PRESENT</div>}
               </div>
-              <div className="flex gap-2 text-xs">
+              <div className="flex gap-2 text-xs xl:flex-col xl:gap-0 xl:mt-4">
                 <div>{location}</div>
-                <div>—</div>
+                <div className="xl:hidden">—</div>
                 <div>{type}</div>
               </div>
             </div>
@@ -44,8 +44,15 @@ const Experience = ({ experience }: ExperienceProps) => {
                 <div>{position}</div>
                 <div>•</div>
                 {url ? (
-                  <Link href={url} target="_blank" className="flex gap-1 items-center underline">
-                    {company} <ArrowUpRightIcon />
+                  <Link
+                    href={url}
+                    target="_blank"
+                    className="group flex gap-1 items-center underline"
+                  >
+                    {company}{' '}
+                    <span className="transition-transform relative group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <ArrowUpRightIcon />
+                    </span>
                   </Link>
                 ) : (
                   <div>{company}</div>

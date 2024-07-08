@@ -7,4 +7,6 @@ export type ButtonProps = DetailedHTMLProps<
   icon?: ReactNode
   children?: ReactNode
   className?: string
+  variant?: 'default' | 'outline' | 'dark'
+  url?: string
 }

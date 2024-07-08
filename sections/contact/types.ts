@@ -4,3 +4,8 @@ export interface FormData {
   message: string
   hiddenMessage?: string
 }
+
+export type ContactProps = {
+  isOpen: boolean
+  handleClose: () => void
+}

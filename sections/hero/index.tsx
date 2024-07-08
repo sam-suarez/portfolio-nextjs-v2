@@ -7,7 +7,7 @@ import Experience from '@/components/experience'
 import CTA from './components/cta'
 
 const Hero = ({ data }: HeroProps) => {
-  const { hero, experienceEntryCollection } = data ?? {}
+  const { hero, experience } = data ?? {}
   const { title, description, skills, summary } = hero ?? {}
 
   return (
@@ -33,7 +33,7 @@ const Hero = ({ data }: HeroProps) => {
           </div>
           <div className="mt-20">
             <h4 className="font-bold mb-6">Experience.</h4>
-            <Experience experience={experienceEntryCollection} />
+            <Experience experience={experience} />
           </div>
           <div className="mt-20">
             <h4 className="font-bold mb-6">Projects.</h4>

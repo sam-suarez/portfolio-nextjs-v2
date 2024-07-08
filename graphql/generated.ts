@@ -263,6 +263,81 @@ export enum EntryOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+/** [See type definition](https://app.contentful.com/spaces/lbiziv4un3dy/content_types/experience) */
+export type Experience = Entry & _Node & {
+  __typename?: 'Experience';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  entriesCollection?: Maybe<ExperienceEntriesCollection>;
+  internalName?: Maybe<Scalars['String']['output']>;
+  linkedFrom?: Maybe<ExperienceLinkingCollections>;
+  sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/lbiziv4un3dy/content_types/experience) */
+export type ExperienceEntriesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ExperienceEntriesCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ExperienceEntryFilter>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/lbiziv4un3dy/content_types/experience) */
+export type ExperienceInternalNameArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/lbiziv4un3dy/content_types/experience) */
+export type ExperienceLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ExperienceCollection = {
+  __typename?: 'ExperienceCollection';
+  items: Array<Maybe<Experience>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type ExperienceEntriesCollection = {
+  __typename?: 'ExperienceEntriesCollection';
+  items: Array<Maybe<ExperienceEntry>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export enum ExperienceEntriesCollectionOrder {
+  CompanyAsc = 'company_ASC',
+  CompanyDesc = 'company_DESC',
+  EndDateAsc = 'endDate_ASC',
+  EndDateDesc = 'endDate_DESC',
+  LocationAsc = 'location_ASC',
+  LocationDesc = 'location_DESC',
+  PositionAsc = 'position_ASC',
+  PositionDesc = 'position_DESC',
+  StartDateAsc = 'startDate_ASC',
+  StartDateDesc = 'startDate_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TypeAsc = 'type_ASC',
+  TypeDesc = 'type_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC'
+}
+
 /** [See type definition](https://app.contentful.com/spaces/lbiziv4un3dy/content_types/experienceEntry) */
 export type ExperienceEntry = Entry & _Node & {
   __typename?: 'ExperienceEntry';
@@ -415,6 +490,7 @@ export type ExperienceEntryFilter = {
 export type ExperienceEntryLinkingCollections = {
   __typename?: 'ExperienceEntryLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
+  experienceCollection?: Maybe<ExperienceCollection>;
 };
 
 
@@ -424,6 +500,28 @@ export type ExperienceEntryLinkingCollectionsEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
+
+export type ExperienceEntryLinkingCollectionsExperienceCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ExperienceEntryLinkingCollectionsExperienceCollectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum ExperienceEntryLinkingCollectionsExperienceCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 export enum ExperienceEntryOrder {
   CompanyAsc = 'company_ASC',
@@ -497,6 +595,48 @@ export type ExperienceEntryOverviewResourcesInline = ResourceLink & {
   __typename?: 'ExperienceEntryOverviewResourcesInline';
   sys: ResourceSys;
 };
+
+export type ExperienceFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ExperienceFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ExperienceFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  entries?: InputMaybe<CfExperienceEntryNestedFilter>;
+  entriesCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  internalName?: InputMaybe<Scalars['String']['input']>;
+  internalName_contains?: InputMaybe<Scalars['String']['input']>;
+  internalName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  internalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  internalName_not?: InputMaybe<Scalars['String']['input']>;
+  internalName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  internalName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type ExperienceLinkingCollections = {
+  __typename?: 'ExperienceLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ExperienceLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum ExperienceOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
 
 /** [See type definition](https://app.contentful.com/spaces/lbiziv4un3dy/content_types/hero) */
 export type Hero = Entry & _Node & {
@@ -796,6 +936,8 @@ export type Query = {
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  experience?: Maybe<Experience>;
+  experienceCollection?: Maybe<ExperienceCollection>;
   experienceEntry?: Maybe<ExperienceEntry>;
   experienceEntryCollection?: Maybe<ExperienceEntryCollection>;
   hero?: Maybe<Hero>;
@@ -834,6 +976,23 @@ export type QueryEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<EntryFilter>;
+};
+
+
+export type QueryExperienceArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryExperienceCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ExperienceOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ExperienceFilter>;
 };
 
 
@@ -933,10 +1092,73 @@ export type _Node = {
   _id: Scalars['ID']['output'];
 };
 
+export type CfExperienceEntryNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfExperienceEntryNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfExperienceEntryNestedFilter>>>;
+  company?: InputMaybe<Scalars['String']['input']>;
+  company_contains?: InputMaybe<Scalars['String']['input']>;
+  company_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  company_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  company_not?: InputMaybe<Scalars['String']['input']>;
+  company_not_contains?: InputMaybe<Scalars['String']['input']>;
+  company_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  endDate?: InputMaybe<Scalars['String']['input']>;
+  endDate_contains?: InputMaybe<Scalars['String']['input']>;
+  endDate_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  endDate_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  endDate_not?: InputMaybe<Scalars['String']['input']>;
+  endDate_not_contains?: InputMaybe<Scalars['String']['input']>;
+  endDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  location_contains?: InputMaybe<Scalars['String']['input']>;
+  location_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  location_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  location_not?: InputMaybe<Scalars['String']['input']>;
+  location_not_contains?: InputMaybe<Scalars['String']['input']>;
+  location_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  overview_contains?: InputMaybe<Scalars['String']['input']>;
+  overview_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  overview_not_contains?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  position_contains?: InputMaybe<Scalars['String']['input']>;
+  position_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  position_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  position_not?: InputMaybe<Scalars['String']['input']>;
+  position_not_contains?: InputMaybe<Scalars['String']['input']>;
+  position_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  stack_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  stack_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  stack_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  stack_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  startDate?: InputMaybe<Scalars['String']['input']>;
+  startDate_contains?: InputMaybe<Scalars['String']['input']>;
+  startDate_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  startDate_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  startDate_not?: InputMaybe<Scalars['String']['input']>;
+  startDate_not_contains?: InputMaybe<Scalars['String']['input']>;
+  startDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  type_contains?: InputMaybe<Scalars['String']['input']>;
+  type_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  type_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type_not?: InputMaybe<Scalars['String']['input']>;
+  type_not_contains?: InputMaybe<Scalars['String']['input']>;
+  type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomepageQuery = { __typename?: 'Query', hero?: { __typename?: 'Hero', title?: string | null, skills?: Array<string | null> | null, description?: { __typename?: 'HeroDescription', json: any } | null, summary?: { __typename?: 'HeroSummary', json: any } | null } | null, experienceEntryCollection?: { __typename?: 'ExperienceEntryCollection', items: Array<{ __typename?: 'ExperienceEntry', position?: string | null, company?: string | null, url?: string | null, startDate?: string | null, endDate?: string | null, location?: string | null, type?: string | null, stack?: Array<string | null> | null, overview?: { __typename?: 'ExperienceEntryOverview', json: any } | null } | null> } | null };
+export type HomepageQuery = { __typename?: 'Query', hero?: { __typename?: 'Hero', title?: string | null, skills?: Array<string | null> | null, description?: { __typename?: 'HeroDescription', json: any } | null, summary?: { __typename?: 'HeroSummary', json: any } | null } | null, experience?: { __typename?: 'Experience', entriesCollection?: { __typename?: 'ExperienceEntriesCollection', items: Array<{ __typename?: 'ExperienceEntry', position?: string | null, company?: string | null, url?: string | null, startDate?: string | null, endDate?: string | null, location?: string | null, type?: string | null, stack?: Array<string | null> | null, overview?: { __typename?: 'ExperienceEntryOverview', json: any } | null } | null> } | null } | null };
 
 
 export const HomepageDocument = gql`
@@ -951,19 +1173,21 @@ export const HomepageDocument = gql`
       json
     }
   }
-  experienceEntryCollection(limit: 10) {
-    items {
-      position
-      company
-      url
-      startDate
-      endDate
-      location
-      type
-      overview {
-        json
+  experience(id: "79zsasaFLMpNoO5ujz5a1K") {
+    entriesCollection(limit: 10) {
+      items {
+        position
+        company
+        url
+        startDate
+        endDate
+        location
+        type
+        overview {
+          json
+        }
+        stack
       }
-      stack
     }
   }
 }

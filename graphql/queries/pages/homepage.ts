@@ -12,19 +12,21 @@ export const HOMEPAGE_QUERY = gql`
         json
       }
     }
-    experienceEntryCollection(limit: 10) {
-      items {
-        position
-        company
-        url
-        startDate
-        endDate
-        location
-        type
-        overview {
-          json
+    experience(id: "79zsasaFLMpNoO5ujz5a1K") {
+      entriesCollection(limit: 10) {
+        items {
+          position
+          company
+          url
+          startDate
+          endDate
+          location
+          type
+          overview {
+            json
+          }
+          stack
         }
-        stack
       }
     }
   }

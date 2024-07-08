@@ -9,7 +9,7 @@ import Stack from '../stack'
 const Experience = ({ experience }: ExperienceProps) => {
   return (
     <div className="grid gap-6">
-      {experience?.items.map((experience, index) => {
+      {experience?.entriesCollection?.items.map((experience, index) => {
         const { position, location, type, company, startDate, endDate, overview, stack, url } =
           experience ?? {}
         return (

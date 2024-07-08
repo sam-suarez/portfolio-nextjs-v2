@@ -5,9 +5,9 @@ import { OverlayProps } from './types'
 const Overlay = ({ isShown, handleClose }: OverlayProps) => {
   return (
     <div
-      className={clsx('fixed inset-0 bg-black opacity-50 transition-all z-10', {
-        'hidden opacity-0': !isShown,
-        'visible opacity-100': isShown,
+      className={clsx('transition-all fixed inset-0 bg-black transition-all z-10', {
+        'invisible opacity-0': !isShown,
+        'visible opacity-60': isShown,
       })}
       onClick={handleClose}
     />

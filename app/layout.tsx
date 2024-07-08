@@ -14,10 +14,9 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-black relative`}>
+      <body className={`${inter.className} bg-white background text-black relative`}>
         <main className="relative leading-[150%] px-5 md:px-12">{children}</main>
         <div id="portal" />
-        <div className="bg-white background fixed inset-0 -z-10" />
       </body>
     </html>
   )

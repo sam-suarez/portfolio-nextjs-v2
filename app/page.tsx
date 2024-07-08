@@ -8,19 +8,13 @@ const fetchServerData = async () => {
     query: HOMEPAGE_QUERY,
   })
 
-  const sectionData = data
-
-  return sectionData
+  return data
 }
 
 const Home = async () => {
   const data = await fetchServerData()
 
-  return (
-    <>
-      <Hero data={data} />
-    </>
-  )
+  return <Hero data={data} />
 }
 
 export default Home

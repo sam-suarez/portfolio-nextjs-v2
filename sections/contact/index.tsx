@@ -55,7 +55,7 @@ const Contact = ({ isOpen = false, handleClose }: ContactProps) => {
     <>
       <section
         className={clsx(
-          'fixed top-0 right-0 bottom-0 w-full lg:w-[500px] py-12 px-5 lg:py-32 md:px-12 bg-black text-white drop-shadow-2xl transition-transform z-20',
+          'fixed top-0 right-0 bottom-0 w-full lg:w-[500px] py-6 px-5 lg:py-32 md:px-12 bg-black text-white drop-shadow-2xl transition-transform z-20',
           { 'translate-x-full': !isOpen, 'translate-x-0': isOpen },
         )}
       >
@@ -70,7 +70,7 @@ const Contact = ({ isOpen = false, handleClose }: ContactProps) => {
             sure to get back to you as soon as possible!
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col mt-12">
+        <form onSubmit={handleSubmit} className="flex flex-col mt-6 md:mt-12">
           <label className="text-sm mb-2" htmlFor="name">
             Name:
           </label>
